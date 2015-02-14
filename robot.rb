@@ -15,6 +15,6 @@ loop do
       raise "robot must be placed first"
     end
   rescue
-    STDERR.puts "\033[31mI can't let you do that, #{`whoami`.strip}\033[0m"
+    STDERR.puts "\033[31mI'm sorry, #{`whoami`.strip}. I'm afraid I can't do that.\033[0m"
   end
 end
