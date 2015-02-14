@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'lib/robot'
 
 robot = nil
@@ -6,7 +5,6 @@ loop do
   begin
     cmd = gets.downcase.strip
     if cmd.index("place") == 0
-      puts 'place detected'
       args = cmd.gsub(',', ' ').split(' ')
       # Drop the PLACE part
       args.shift 
@@ -14,9 +12,9 @@ loop do
     elsif robot
       robot.command(cmd)
     else
-      raise "no robot"
+      raise "robot must be placed first"
     end
   rescue
-    puts "I can't let you do that, #{`whoami`}"
+    STDERR.puts "I can't let you do that, #{`whoami`}"
   end
 end
