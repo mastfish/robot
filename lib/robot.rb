@@ -1,12 +1,19 @@
 class Robot
 
-  VALID_FACINGS = [
-    "north", "south", "east", "west"
-  ]
-
   VALID_COMMANDS = [
     "move", "left", "right", "report"
   ]
+
+  LEFT_MAPPING = {
+    "north" => "west",
+    "west" => "south",
+    "south" => "east",
+    "east" => "north",
+  }
+
+  RIGHT_MAPPING = LEFT_MAPPING.invert
+
+  VALID_FACINGS = LEFT_MAPPING.keys
 
   def initialize(in_x, in_y, in_facing)
     self.x = in_x.to_i
@@ -19,23 +26,32 @@ class Robot
     self.send(input)
   end
 
+  private
+
   def move
-    puts "move called"
+    case @facing
+    when "north"
+      self.y = @y + 1
+    when "east"
+      self.x = @x + 1
+    when "south"
+      self.y = @y - 1
+    when "west"
+      self.x = @x - 1
+    end
   end
 
   def left
-    puts "left called"
+    self.facing = LEFT_MAPPING[@facing]
   end
 
   def right
-    puts "right called"
+    self.facing = RIGHT_MAPPING[@facing]
   end
 
   def report
     puts "#{@x},#{@y},#{@facing.upcase}"
   end
-
-  private
 
   def x=(input)
     raise unless on_board?(input)

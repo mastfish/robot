@@ -3,7 +3,7 @@ require_relative 'lib/robot'
 
 robot = nil
 loop do
-  # begin
+  begin
     cmd = gets.downcase.strip
     if cmd.index("place") == 0
       puts 'place detected'
@@ -16,8 +16,7 @@ loop do
     else
       raise "no robot"
     end
-  # rescue e
-  #   p e
-  # end
-
+  rescue
+    puts "I can't let you do that, #{`whoami`}"
+  end
 end
