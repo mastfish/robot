@@ -53,10 +53,10 @@ Output: 3,3,NORTH
 -------------------------------------
 Implementation:
 
-This is a simple ruby application with no dependencies. It assumes a unixy environment, and has been tested with ruby 2.2.
+This is a simple ruby application with no dependencies. It assumes a unixy environment, and has been tested with ruby 2.2. Tests were run using rspec 3.2.0
 
 To run:
 ruby robot.rb
 
-To test (Note, you will need rspec installed):
+To test (Note, you will need rspec installed, gem install rspec):
 rspec test/*
