@@ -57,3 +57,6 @@ This is a simple ruby application with no dependencies. It assumes a unixy envir
 
 To run:
 ruby robot.rb
+
+To test (Note, you will need rspec installed):
+rspec test/*

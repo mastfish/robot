@@ -1,5 +1,7 @@
 class Robot
 
+  MAX_BOARD_INDEX = 4
+
   VALID_COMMANDS = [
     "move", "left", "right", "report"
   ]
@@ -69,7 +71,7 @@ class Robot
   end
 
   def on_board?(input)
-    (0..4).include?(input)
+    (0..MAX_BOARD_INDEX).include?(input)
   end
 
 end
